@@ -33,7 +33,7 @@ Dim fileName As String
     folderName = "Flow"
     fileName = "Flow"
     
-    EnsureDesktopFolderExists folderName, Environ$("USERPROFILE") & "\Desktop\" & folderName
+    EnsureDesktopFolderExists folderName, Environ$("USERPROFILE") & "\Desktop\" '& folderName
        
     GetFileName = Environ$("USERPROFILE") & "\Desktop\" & folderName & "\" & fileName & "_" _
          & WorksheetFunction.Text(Month(Date), "00") & "_" & WorksheetFunction.Text(Day(Date), "00") & "_" & Year(Date) & ".xlsm"
@@ -57,5 +57,5 @@ End Sub
 
 Public Sub EnsureDesktopFolderExists(ByVal folderName As String, path As String)
     
-    If Len(Dir(path, vbDirectory)) = 0 Then MkDir path & folderName
+    If Len(Dir(path & folderName, vbDirectory)) = 0 Then MkDir path & folderName
 End Sub
